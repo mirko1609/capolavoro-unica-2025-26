@@ -1,0 +1,480 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: rgb(2, 5, 20);
+    color: white;
+}
+body::before{
+    content:"";
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    pointer-events:none;
+
+    background: repeating-linear-gradient(
+        to bottom,
+        rgba(255,255,255,0.03),
+        rgba(255,255,255,0.03) 1px,
+        transparent 1px,
+        transparent 3px
+    );
+}
+nav{
+    padding: 20px;
+    justify-content: space-between;
+    width: 100%;
+    background-color: rgba(17, 25, 58, 0.733);
+    height: 10vh;
+    color: white;
+    /*border-bottom: 1px solid rgba(255, 255, 255, 0.61);*/
+
+    font-family: orbitron, sans-serif;
+    position: relative;
+}
+
+nav::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(
+        to right,
+        transparent,
+        rgb(255, 255, 255),
+        transparent
+    );
+}
+h1{
+    font-family: orbitron, sans-serif;
+    font-size: 1.5rem;
+}
+.nav-links{
+    position: absolute;
+    right: 1.5rem;
+    top: 40%;
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    color: white;
+}
+
+.list a{
+    text-decoration: none;
+    color: white;
+    align-items: center;
+}
+
+#inizio{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    justify-content: center;
+    height: 90vh;
+    gap: 20px;
+    font-family: 'Press Start 2P', cursive;
+    letter-spacing: 2px;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+#inizio h5{
+    font-size: 0.4rem;
+    color: rgb(0, 255, 34);
+}
+
+#inizio h1{
+    font-size: 2.5rem;
+    font-family: 'Press Start 2P', cursive;
+    animation: glitch 3s infinite;
+    
+}
+#inizio .space{
+    color: rgb(255, 255, 255);
+    text-shadow: 0 0 30px rgb(0, 255, 213);
+}
+#inizio .war{
+    color: rgb(0, 255, 213);
+    text-shadow: 0 0 30px rgb(0, 255, 213);
+}
+
+#inizio p{
+    font-size: 0.4rem;
+    color: rgba(255, 255, 255, 0.678);
+    font-family: 'Press Start 2P', cursive;
+}
+@keyframes glitch {
+    0%   { opacity: 1; }
+    3%   { opacity: 0.6; }
+    5%   { opacity: 1; }
+    7%   { opacity: 0.2; }
+    9%   { opacity: 1; }
+    15%  { opacity: 0.8; }
+    16%  { opacity: 1; }
+    100% { opacity: 1; }
+}
+#inizio .competenze{
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    font-size: 0.4rem;
+    color: rgba(255, 255, 255, 0.678);
+    font-family: 'Press Start 2P', cursive;
+    letter-spacing: 2px;
+}
+
+#inizio .competenze .html{
+    color: rgb(0, 255, 213);    
+    border: 1px solid rgb(0, 255, 213);
+    padding: 0.5rem;
+    text-shadow: 0 0 30px rgb(0, 255, 213);
+    box-shadow: 0 0 5px rgb(0, 255, 213);
+
+}
+#inizio .competenze .html:hover{
+    color: rgb(0, 255, 213);    
+    border: 1px solid rgb(0, 255, 213);
+    padding: 0.5rem;
+    text-shadow: 0 0 30px rgb(0, 255, 213);
+    box-shadow: 0 0 15px rgb(0, 255, 213);
+    background-color: rgba(0, 255, 213, 0.2);
+    transition: all 0.3s ease;
+}
+
+#inizio .competenze .css{
+    color: rgb(0, 255, 34);
+    border: 1px solid rgb(0, 255, 34);
+    padding: 0.5rem;
+    text-shadow: 0 0 30px rgb(0, 255, 34);
+    box-shadow: 0 0 5px rgb(0, 255, 34);
+}
+#inizio .competenze .css:hover{
+    color: rgb(0, 255, 34);
+    border: 1px solid rgb(0, 255, 34);
+    padding: 0.5rem;
+    text-shadow: 0 0 30px rgb(0, 255, 34);
+    box-shadow: 0 0 15px rgb(0, 255, 34);
+    background-color: rgba(0, 255, 34, 0.2);
+    transition: all 0.3s ease;
+}
+
+#inizio .competenze .js{
+    color: rgb(234, 0, 255);
+    border: 1px solid rgb(234, 0, 255);
+    padding: 0.5rem;
+    text-shadow: 0 0 30px rgb(234, 0, 255);
+    box-shadow: 0 0 5px rgb(234, 0, 255);
+}
+#inizio .competenze .js:hover{
+    color: rgb(234, 0, 255);
+    border: 1px solid rgb(234, 0, 255);
+    padding: 0.5rem;
+    text-shadow: 0 0 30px rgb(234, 0, 255);
+    box-shadow: 0 0 15px rgb(234, 0, 255);
+    background-color: rgba(234, 0, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+#inizio .competenze .gl{
+    color: rgb(255, 255, 0);
+    border: 1px solid rgb(255, 255, 0);
+    padding: 0.5rem;
+    text-shadow: 0 0 30px rgb(255, 255, 0);
+    box-shadow: 0 0 5px rgb(255, 255, 0);
+}
+#inizio .competenze .gl:hover{
+    color: rgb(255, 255, 0);
+    border: 1px solid rgb(255, 255, 0);
+    padding: 0.5rem;
+    text-shadow: 0 0 30px rgb(255, 255, 0);
+    box-shadow: 0 0 15px rgb(255, 255, 0);
+    background-color: rgba(255, 255, 0, 0.2);
+    transition: all 0.3s ease;
+}
+#about{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    justify-content: center;
+    height: 90vh;
+    gap: 30px;
+    font-family: 'Press Start 2P', cursive;
+    letter-spacing: 2px;
+    width: 70%;
+    margin: 0 auto;
+}
+
+#about .head-container{
+    display: flex;
+    gap: 1rem;
+}
+
+#about .head-container h1{
+    font-size: 0.7rem;
+    font-family: 'Press Start 2P', cursive;
+}
+#about .head-container h1 .num{
+    color: rgb(234, 0, 255);
+    text-shadow: 0 0 20px rgb(234, 0, 255);
+}
+#about .head-container h1 .head{
+    color: white;
+}
+
+#about .about-griglia{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    font-size: 0.4rem;
+}
+
+#about .about-griglia .about-info{
+    color: rgba(255, 255, 255, 0.678);
+    background-color: rgba(42, 129, 163, 0.342);
+    padding: 25px;
+    border: 1px solid rgba(0, 225, 255, 0.671);
+    border-top: 3px solid rgba(0, 225, 255, 0.959);
+    overflow: hidden;
+    line-height: 2;
+}
+
+#about .about-griglia .about-info:hover{
+    background-color: rgba(42, 129, 163, 0.542);
+    border: 1px solid rgb(0, 225, 255);
+    border-top: 3px solid rgb(0, 225, 255);
+    transition: all 0.3s ease;
+}
+
+#about .about-griglia .about-info h3{
+    font-size: 0.5rem;
+    color: rgb(0, 255, 213);    
+    text-shadow: 0 0 30px rgb(0, 255, 213);
+    margin-bottom: 10px;
+}
+
+#coding{
+    padding-top: 7rem;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    justify-content: space-between;
+    gap: 30px;
+    font-family: 'Press Start 2P', cursive;
+    letter-spacing: 2px;
+    width: 70%;
+    margin: 0 auto;
+}
+#coding .head-container{
+    display: flex;
+    gap: 1rem;
+}
+
+#coding .head-container h1{
+    font-size: 0.7rem;
+    font-family: 'Press Start 2P', cursive;
+}
+#coding .head-container h1 .num{
+    color: rgb(234, 0, 255);
+    text-shadow: 0 0 20px rgb(234, 0, 255);
+}
+#coding .head-container h1 .head{
+    color: white;
+}
+#coding .coding-griglia{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#coding .coding-row{
+    display: flex;
+    gap: 20px;
+}
+
+#coding .coding-info{
+    flex: 1;
+    color: rgba(255, 255, 255, 0.678);
+    background-color: rgba(42, 129, 163, 0.342);
+    padding: 25px;
+    border: 1px solid rgba(0, 225, 255, 0.671);
+    border-top: 3px solid rgba(0, 225, 255, 0.959);
+    line-height: 2;
+    font-size: 0.5rem;
+}
+
+#coding .coding-info:hover{
+    background-color: rgba(42, 129, 163, 0.542);
+    border: 1px solid rgb(0, 225, 255);
+    border-top: 3px solid rgb(0, 225, 255);
+    transition: all 0.3s ease;
+}
+
+#coding .coding-info h3{
+    font-size: 0.8rem;
+    color: rgb(255, 238, 0);    
+    text-shadow: 0 0 30px rgb(255, 238, 0);
+    margin-bottom: 10px;
+}
+
+#coding .coding-img{
+    flex: 1;
+}
+
+#coding .coding-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 1px solid rgba(0, 225, 255, 0.671);
+    border-top: 3px solid rgba(0, 225, 255, 0.959);
+    box-shadow: 0 0 10px rgba(0, 225, 255, 0.671);
+}
+
+#riflessione{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    height: 90vh;
+    justify-content: center;
+    padding-top: 8rem;
+    padding-bottom: 5rem;
+    gap: 30px;
+    font-family: 'Press Start 2P', cursive;
+    letter-spacing: 2px;
+    width: 50%;
+    margin: 0 auto;
+}
+
+#riflessione .head-container{
+    display: flex;
+    gap: 1rem;
+}
+#riflessione .head-container h1{
+    font-size: 0.7rem;
+    font-family: 'Press Start 2P', cursive;
+}
+#riflessione .head-container h1 .num{
+    color: rgb(234, 0, 255);
+    text-shadow: 0 0 20px rgb(234, 0, 255);
+}
+
+#riflessione .testo{
+    color: rgba(255, 255, 255, 0.678);
+    background-color: rgba(78, 75, 22, 0.205);
+    border: 1px solid rgba(251, 255, 0, 0.671);
+    border-top: 3px solid rgba(251, 225, 0, 0.959);
+    line-height: 2;
+}
+
+#riflessione .testo p{
+    font-size: 0.6rem;
+    padding: 2rem;
+}
+
+#riflessione .testo p .highlight{
+    color: rgb(255, 255, 0);
+    
+}
+
+#gioco{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    gap: 30px;
+    padding-top: 8rem;
+    padding-bottom: 5rem;
+    justify-content: center;
+    font-family: 'Press Start 2P', cursive;
+    letter-spacing: 2px;
+    width: 70%;
+    margin: 0 auto;
+}
+#gioco .head-container{
+    display: flex;
+    gap: 1rem;
+}
+#gioco .head-container h1{
+    font-size: 0.7rem;
+    font-family: 'Press Start 2P', cursive;
+}
+#gioco .head-container h1 .num{
+    color: rgb(234, 0, 255);
+    text-shadow: 0 0 20px rgb(234, 0, 255);
+}
+
+#gioco .gioco-container{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 50%;
+    
+}
+
+#gioco .gioco-container .immagine-gioco{
+    width: 100%;
+    object-fit: cover;
+    border: 1px solid rgba(0, 225, 255, 0.671);
+    border-top: 3px solid rgba(0, 225, 255, 0.959);
+    box-shadow: 0 0 10px rgba(0, 225, 255, 0.671);
+}
+
+#gioco .gioco-container h2{
+    font-size: 1.5rem;
+    font-family: 'Press Start 2P', cursive;
+    animation: glitch 3s infinite;
+    
+}
+#gioco .gioco-container .spacex{
+    color: rgb(255, 255, 255);
+    text-shadow: 0 0 30px rgb(0, 255, 213);
+}
+#gioco .gioco-container .warx{
+    color: rgb(0, 255, 213);
+    text-shadow: 0 0 30px rgb(0, 255, 213);
+}
+
+#gioco .gioco-container p{
+    font-size: 0.7rem;
+    color: rgba(255, 230, 0, 0.884);
+    text-shadow: 0 0 30px rgba(255, 230, 0, 0.884);
+    animation: grade 3s infinite;
+
+}
+
+@keyframes grade {
+    0%   { text-shadow: 0 0 30px rgb(255, 230, 0); }
+    50%  { text-shadow: 0 0 30px rgba(255, 230, 0, 0.332); }
+    100% { text-shadow: 0 0 30px rgb(255, 230, 0); }
+}
+
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 12vh;
+    background-color: rgba(17, 25, 58, 0.733);
+    color: rgba(255, 255, 255, 0.664);
+    font-family: orbitron, sans-serif;
+    text-align: center;
+    border-top: 1px solid rgba(0, 255, 213, 0.671);
+}
+footer p{
+    font-size: 0.7rem;
+    line-height: 2;
+}
+
+footer p .highlightx{
+    color: rgb(0, 255, 213);
+}
