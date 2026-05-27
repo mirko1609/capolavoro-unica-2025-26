@@ -9,7 +9,9 @@ body, html{
     padding: 0;
     box-sizing: border-box;
 }
-
+html {
+    scroll-behavior: smooth;
+}
 body{
     background-color: rgb(2, 5, 20);
     color: white;
@@ -32,6 +34,7 @@ body::before{
     );
 }
 nav{
+    display: flex;
     padding: 20px;
     justify-content: space-between;
     width: 100%;
@@ -42,6 +45,7 @@ nav{
 
     font-family: orbitron, sans-serif;
     position: relative;
+    z-index: 2;
 }
 
 nav::after {
@@ -65,7 +69,7 @@ h1{
 .nav-links{
     position: absolute;
     right: 1.5rem;
-    top: 40%;
+    align-items: center;
     list-style: none;
     display: flex;
     gap: 20px;
@@ -77,13 +81,120 @@ h1{
     color: white;
     align-items: center;
 }
+.list a:hover{
+    color: rgb(0, 255, 213);
+    text-shadow: 0 0 15px rgb(0, 255, 213);
+}
+
+#sfondo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.hamburger{
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 999;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    opacity: 1;
+    transition: .3s;
+}
+
+.hidden-menu{
+    opacity: 0;
+    pointer-events: none;
+}
+
+#menu-btn{
+    background: rgba(17,25,58,.9);
+    border: 1px solid cyan;
+    color: cyan;
+    padding: 12px 15px;
+    font-size: 1.2rem;
+    cursor: pointer;    
+    box-shadow: 0 0 10px cyan;
+    transition: .3s;
+}
+
+
+#menu-btn:hover{
+    box-shadow: 0 0 20px cyan;
+    background: rgba(0,255,255,.1);
+}
+
+.mobile-menu{
+    display: flex;
+    flex-direction: column;
+
+    margin-top: 10px;
+    background: rgba(5,10,30,.95);
+
+    border: 1px solid cyan;
+    box-shadow: 0 0 15px cyan;
+
+    opacity: 0;
+    transform: translateY(-10px);
+
+    pointer-events: none;
+    transition: .3s;
+}
+
+.mobile-menu.open{
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+}
+
+.mobile-menu a{
+    color: white;
+    text-decoration: none;
+    padding: 15px;
+    font-family: 'Press Start 2P';
+    font-size: .5rem;
+    border-bottom: 1px solid rgba(0,255,255,.2);
+    transition:.3s;
+}
+
+.mobile-menu a:hover{
+    background: rgba(0,255,255,.1);
+    color: cyan;
+}
+
+.reveal{
+    opacity: 0;
+    transform: translateY(40px);
+    filter: blur(4px);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease,
+        filter 0.8s ease;
+}
+
+.reveal.active{
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+}
 
 #inizio{
     display: flex;
     flex-direction: column;
     text-align: left;
     justify-content: center;
-    height: 90vh;
+    min-height: 90vh;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
     gap: 20px;
     font-family: 'Press Start 2P', cursive;
     letter-spacing: 2px;
@@ -204,12 +315,44 @@ h1{
     background-color: rgba(255, 255, 0, 0.2);
     transition: all 0.3s ease;
 }
+
+.scroll-hint, .scroll-link{
+    text-decoration: none;
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.5rem;
+    color: rgb(0, 255, 213);
+    text-shadow: 0 0 15px rgb(0, 255, 213);
+    animation: bounce 1.5s infinite;
+    transition: opacity 0.5s ease;
+    z-index: 100;
+}
+
+.scroll-hint.hidden{
+    opacity: 0;
+    pointer-events: none;
+}
+
+@keyframes bounce{
+    0%,100%{
+        transform: translateX(-50%) translateY(0);
+    }
+    50%{
+        transform: translateX(-50%) translateY(8px);
+    }
+}
+
+
 #about{
     display: flex;
     flex-direction: column;
     text-align: left;
     justify-content: center;
-    height: 90vh;
+    min-height: 90vh;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
     gap: 30px;
     font-family: 'Press Start 2P', cursive;
     letter-spacing: 2px;
@@ -270,7 +413,7 @@ h1{
     display: flex;
     flex-direction: column;
     text-align: left;
-    justify-content: space-between;
+    
     gap: 30px;
     font-family: 'Press Start 2P', cursive;
     letter-spacing: 2px;
@@ -346,7 +489,9 @@ h1{
     display: flex;
     flex-direction: column;
     text-align: left;
-    height: 90vh;
+    min-height: 90vh;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
     justify-content: center;
     padding-top: 8rem;
     padding-bottom: 5rem;
@@ -477,4 +622,152 @@ footer p{
 
 footer p .highlightx{
     color: rgb(0, 255, 213);
+}
+
+@media (max-width: 1024px) {
+
+    #about,
+    #coding,
+    #riflessione,
+    #gioco {
+        padding-top: 7rem;
+        width: 90%;
+    }
+
+    #about .about-griglia {
+        grid-template-columns: 1fr;
+    }
+
+    #coding .coding-row {
+        flex-direction: column;
+    }
+
+    .nav-links {
+        display: none; /* ok, usi hamburger quindi va bene */
+    }
+    #coding{
+    width: 90%;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+#coding .coding-row{
+    flex-direction: column;
+    align-items: stretch;
+}
+
+#coding .coding-img{
+    width: 100%;
+}
+
+#coding .coding-img img{
+    width: 100%;
+    height: auto;
+    display: block;
+}
+}
+
+@media (max-width: 768px) {
+
+    #inizio h1 {
+        font-size: 1.6rem;
+        text-align: center;
+    }
+
+    #inizio {
+        width: 90%;
+        text-align: center;
+        align-items: center;
+    }
+
+    .competenze {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    #gioco .gioco-container {
+        width: 100%;
+    }
+
+    section{
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+#about,
+#coding,
+#riflessione,
+#gioco{
+    width: 95%;
+    gap: 2rem;
+}
+
+#about .about-griglia{
+    gap: 1rem;
+}
+
+#coding .coding-griglia{
+    gap: 2rem;
+}
+
+#coding .coding-info,
+#about .about-info,
+#riflessione .testo{
+    padding: 1.2rem;
+}
+
+#riflessione{
+    width: 95%;
+}
+
+#riflessione .testo p{
+    font-size: .45rem;
+    line-height: 2.2;
+}
+
+footer{
+    height: auto;
+    padding: 2rem;
+}
+
+footer p{
+    font-size: .5rem;
+}
+nav h1{
+    font-size: .8rem;
+}
+}
+
+@media (max-width: 480px) {
+
+    nav h1 {
+        font-size: 0.9rem;
+    }
+
+    #menu-btn {
+        padding: 10px 12px;
+        font-size: 1rem;
+    }
+
+    .mobile-menu a {
+        font-size: 0.6rem;
+    }
+
+    #inizio h1 {
+        font-size: 1.2rem;
+    }
+
+    #about .about-info,
+    #coding .coding-info {
+        font-size: 0.45rem;
+        line-height: 1.6;
+    }
+
+    #riflessione .testo p {
+        font-size: 0.5rem;
+    }
+
+    footer p {
+        font-size: 0.5rem;
+    }
 }
